@@ -13,7 +13,7 @@ This is a web application that allows users to track cryptocurrency prices and p
 
 - Front-end: HTML, CSS, JavaScript, React.js, Tailwind CSS
 - Back-end: Node.js
-External APIs: CoinGecko API (for cryptocurrency data)
+- External APIs: CoinGecko API (for cryptocurrency data)
 
 ## Installation
 
