@@ -1,9 +1,9 @@
 import React from "react";
 
-export const Credits = () => {
+export const Credits = ({ className }) => {
   return (
     <>
-      <span className="mt-4 md:mt-0">
+      <span className={`mt-4 md:mt-0 ${className}`}>
         Data provided by{" "}
         <a
           className="text-cyan"
