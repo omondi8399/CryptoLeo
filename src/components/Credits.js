@@ -3,7 +3,7 @@ import React from "react";
 export const Credits = () => {
   return (
     <>
-      <span className="mt-4 sm:mt-0">
+      <span className="mt-4 md:mt-0">
         Data provided by{" "}
         <a
           className="text-cyan"

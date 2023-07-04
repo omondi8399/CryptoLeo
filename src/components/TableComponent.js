@@ -180,11 +180,11 @@ const TableComponent = () => {
           </h1>
         ) : null}
       </div>
-      <div className="flex items-center justify-between mt-4 capitalize h-[2rem]">
-        {screenSize !== "sm" && <Credits />}
+      <div className="flex items-center justify-between mt-4 capitalize h-[2rem] show">
+        {screenSize === "lg" && <Credits />}
         <Pagination />
       </div>
-      {screenSize === "sm" && <Credits />}
+      {screenSize !== "lg" && <Credits />}
     </>
   );
 };

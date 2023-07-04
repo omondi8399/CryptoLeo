@@ -90,7 +90,7 @@ const Pagination = () => {
 
   if (cryptoData && cryptoData.length >= perPage) {
     return (
-      <div className="flex items-center w-full sm:w-auto justify-between">
+      <div className="flex items-center flex-1 md:flex-grow-0 sm:w-auto justify-between">
         <PerPage />
         <ul className="flex items-center justify-end text-sm">
           <li className="flex items-center">

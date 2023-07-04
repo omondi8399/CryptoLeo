@@ -8,7 +8,7 @@ import { TrendingProvider } from "../context/TrendingContext";
 import useScreenSize from "../hooks/useScreenSize";
 
 const Home = () => {
-  const screenSize = useScreenSize();
+  // const screenSize = useScreenSize();s
   return (
     <CryptoProvider>
       <TrendingProvider>
@@ -20,9 +20,9 @@ const Home = () => {
           >
             <div className="w-screen h-screen bg-gray-300 fixed -z-10" />
             {/* DoNotDelete This is for refactoring during development */}
-            <p className="fixed top-4 right-4 font-semibold text-red text-lg">
+            {/* <p className="fixed top-4 right-4 font-semibold text-red text-lg">
               {screenSize}
-            </p>
+            </p> */}
             <Logo />
             <Navigation />
             <Outlet />
