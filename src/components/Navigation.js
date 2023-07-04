@@ -13,7 +13,7 @@ const Navigation = () => {
 				end
 				className={({ isActive }) => {
 					return ` w-1/3 px-2 py-1 text-base text-center font-nunito m-2.5 ${isActive ? "bg-cyan text-gray-300"
-						: "bg-gray-200 text-gray-100hover:text-cyan active:bg-cyan active:text-gray-300"} border-0 cursor-pointer rounded capitalize font-semibold`;
+						: "bg-gray-200 text-gray-100 hover:text-cyan active:bg-cyan active:text-gray-300"} border-0 cursor-pointer rounded capitalize font-semibold`;
 				}}
 			>
 				Crypto
@@ -26,7 +26,7 @@ const Navigation = () => {
 
 ${isActive
 							? "bg-cyan text-gray-300"
-							: "bg-gray-200 text-gray-100hover:text-cyan active:bg-cyan active:text-gray-300"
+							: "bg-gray-200 text-gray-100 hover:text-cyan active:bg-cyan active:text-gray-300"
 						}
     border-0 cursor-pointer rounded capitalize font-semibold`;
 				}}
@@ -41,7 +41,7 @@ ${isActive
 
 ${isActive
 							? "bg-cyan text-gray-300"
-							: "bg-gray-200 text-gray-100hover:text-cyan active:bg-cyan active:text-gray-300"
+							: "bg-gray-200 text-gray-100 hover:text-cyan active:bg-cyan active:text-gray-300"
 						}
     border-0 cursor-pointer rounded capitalize font-semibold`;
 				}}

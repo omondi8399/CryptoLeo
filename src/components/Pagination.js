@@ -129,7 +129,7 @@ const Pagination = () => {
           <li>
             <button
               disabled
-              className="ouline-0  rounded-full w-8 h-8 flex items-center justify-center bg-cyan text-gray-300 mx-1.5"
+              className="ouline-0  rounded-full w-8 p-2 h-8 flex items-center justify-center bg-cyan text-gray-300 mx-1.5"
             >
               {page}
             </button>
@@ -162,7 +162,7 @@ const Pagination = () => {
             <li>
               <button
                 onClick={() => setPage(TotalNumber)}
-                className="ouline-0 hover:text-cyan  rounded-full w-8 h-8 flex items-center justify-center bg-gray-200 mx-1.5"
+                className="ouline-0 hover:text-cyan  rounded-full w-fit p-1 h-8 flex items-center justify-center bg-gray-200 mx-1.5"
               >
                 {TotalNumber}
               </button>

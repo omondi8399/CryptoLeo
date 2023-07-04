@@ -34,7 +34,7 @@ const TrendingCoin = ({ data }) => {
             </span>
             <span className="text-cyan">{data.market_cap_rank}</span>
           </h3>
-          <h3 className="txt-base flex items-center my-0.5">
+          <h3 className="txt-base flex items-center flex-wrap my-0.5">
             <span className="text-gray-100 capitalize">
               price (in btc):&nbsp;
             </span>
@@ -55,7 +55,7 @@ const TrendingCoin = ({ data }) => {
           <img
             src={data.large}
             alt={data.name}
-            className="w-[35%] h-auto rounded-full absolute top-2/4 -right-12
+            className="w-[25%] h-auto rounded-full absolute top-2/4 -right-9  xl:-right-12 xl:w-[15%]
 -translate-y-2/4
 "
           />
