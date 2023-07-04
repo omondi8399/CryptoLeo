@@ -53,7 +53,6 @@ const SaveBtn = ({ data }) => {
 
 const TableComponent = () => {
   let { cryptoData, currency, error } = useContext(CryptoContext);
-
   return (
     <>
       <div className="flex flex-col mt-9 border border-gray-100 rounded">
@@ -178,10 +177,9 @@ const TableComponent = () => {
           </h1>
         ) : null}
       </div>
-      <div className="flex items-center justify-between mt-4 capitalize h-[2rem] show">
-        <Credits className="hidden lg:block" /> <Pagination />
+      <div className="flex items-center justify-between mt-20 md:mt-10 capitalize h-[2rem] flex-col-reverse md:flex-row gap-x-5">
+        <Credits /> <Pagination />
       </div>
-      <Credits className="lg:hidden" />
     </>
   );
 };
