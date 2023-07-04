@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { CryptoContext } from "./../context/CryptoContext";
 import Pagination from "./Pagination";
 import { StorageContext } from "./../context/StorageContext";
-import useScreenSize from "../hooks/useScreenSize";
 import { Credits } from "./Credits";
 
 const SaveBtn = ({ data }) => {
@@ -54,8 +53,6 @@ const SaveBtn = ({ data }) => {
 
 const TableComponent = () => {
   let { cryptoData, currency, error } = useContext(CryptoContext);
-  const screenSize = useScreenSize();
-
   return (
     <>
       <div className="flex flex-col mt-9 border border-gray-100 rounded">
@@ -180,11 +177,9 @@ const TableComponent = () => {
           </h1>
         ) : null}
       </div>
-      <div className="flex items-center justify-between mt-4 capitalize h-[2rem]">
-        {screenSize !== "sm" && <Credits />}
-        <Pagination />
+      <div className="flex items-center justify-between mt-20 md:mt-10 capitalize h-[2rem] flex-col-reverse md:flex-row gap-x-5">
+        <Credits /> <Pagination />
       </div>
-      {screenSize === "sm" && <Credits />}
     </>
   );
 };

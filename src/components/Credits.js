@@ -1,9 +1,9 @@
 import React from "react";
 
-export const Credits = () => {
+export const Credits = ({ className }) => {
   return (
-    <>
-      <span className="mt-4 sm:mt-0">
+    <div className="flex flex-col md:flex-row w-full md:w-1/2 justify-between">
+      <span className={`${className}`}>
         Data provided by{" "}
         <a
           className="text-cyan"
@@ -25,6 +25,6 @@ export const Credits = () => {
           DevRojas
         </a>
       </span>
-    </>
+    </div>
   );
 };
