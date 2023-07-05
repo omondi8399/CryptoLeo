@@ -6,6 +6,7 @@ import { CryptoProvider } from "../context/CryptoContext";
 import { StorageProvider } from "../context/StorageContext";
 import { TrendingProvider } from "../context/TrendingContext";
 
+
 const Home = () => {
   return (
     <CryptoProvider>
