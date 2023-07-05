@@ -1,6 +1,7 @@
 import debounce from "lodash.debounce";
 import React, { useContext, useState } from "react";
-import searchIcon from "../assets/search-icon.svg";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { CryptoContext } from "./../context/CryptoContext";
 
 const SearchInput = ({ handleSearch }) => {
@@ -42,9 +43,9 @@ const SearchInput = ({ handleSearch }) => {
         />
         <button
           type="submit"
-          className="absolute z-10 top-[15%] right-2 cursor-pointer"
+          className="absolute z-10 top-[15%] right-2 cursor-pointer text-cyan hover:text-white"
         >
-          <img src={searchIcon} className="h-auto" alt="search" />
+          <FontAwesomeIcon icon={faSearch} />
         </button>
       </form>
 
