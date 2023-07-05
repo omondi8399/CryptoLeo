@@ -101,7 +101,7 @@ const Search = () => {
   }, 2000);
 
   return (
-    <div className="relative w-full">
+    <div className="relative">
       <SearchInput handleSearch={debounceFunc} />
     </div>
   );

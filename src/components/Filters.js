@@ -23,9 +23,9 @@ const Filters = () => {
   };
 
   return (
-    <div className="w-full border-2 border-gray-100 rounded-lg py-2 px-2 flex items-start md:flex-row md:items-center md:justify-between flex-col gap-4 md:flex-wrap">
+    <div className=" w-full border-2 border-gray-100 rounded-lg py-2 px-2 flex items-start md:flex-row md:items-center md:justify-between flex-col gap-4 flex-wrap">
       <Search />
-      <div className="flex flex-col gap-4 md:flex-row md:justify-between w-full sm:w-auto">
+      <div className="flex flex-col gap-4 md:flex-row md:justify-between ">
         <form
           className="flex items-center gap-3 sm:gap-2 w-full sm:w-auto justify-between"
           onSubmit={handleCurrencySubmit}
@@ -44,7 +44,7 @@ const Filters = () => {
             <img src={submitIcon} alt="submit" className=" h-auto" />
           </button>
         </form>
-        <div className="flex items-center gap-2 flex-wrap">
+        <div className="flex items-center gap-2">
           <span className="font-bold">sort by: </span>
           <div className="relative bg-gray-200">
             <select
