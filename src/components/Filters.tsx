@@ -1,24 +1,26 @@
 import React, { useContext, useRef } from "react";
 import Search from "./Search";
-// import submitIcon from "../assets/submit-icon.svg";
-import selectIcon from "../assets/select-icon.svg";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSquareArrowUpRight, faChevronDown, faRotate} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSquareArrowUpRight,
+  faChevronDown,
+  faRotate,
+} from "@fortawesome/free-solid-svg-icons";
 
-import { CryptoContext } from "./../context/CryptoContext";
+import { CryptoContext } from "../context/CryptoContext";
 
 const Filters = () => {
   let { setCurrency, setSortBy, resetFunction } = useContext(CryptoContext);
-  const currencyRef = useRef(null);
+  const currencyRef = useRef<HTMLInputElement | null>(null);
 
-  const handleCurrencySubmit = (e) => {
+  const handleCurrencySubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    let val = currencyRef.current.value;
+    let val = currencyRef?.current?.value;
     setCurrency(val);
-    currencyRef.current.value = "";
+    currencyRef!.current!.value = "";
   };
 
-  const handleSort = (e) => {
+  const handleSort = (e: any) => {
     e.preventDefault();
     let val = e.target.value;
     setSortBy(val);
@@ -42,8 +44,11 @@ const Filters = () => {
             placeholder="usd"
             className="w-full sm:w-1/2 rounded bg-gray-200 placeholder:text-gray-100 required border border-hidden focus:border-cyan leading-4 pl-2 py-1"
           />
-          <button type="submit" className="cursor-pointer text-cyan hover:text-white">
-          <FontAwesomeIcon icon={faSquareArrowUpRight} />
+          <button
+            type="submit"
+            className="cursor-pointer text-cyan hover:text-white"
+          >
+            <FontAwesomeIcon icon={faSquareArrowUpRight} />
             {/* <img src={submitIcon} alt="submit" className=" h-auto" /> */}
           </button>
         </form>
@@ -64,7 +69,10 @@ const Filters = () => {
               <option value="gecko_desc">gecko desc</option>
               <option value="gecko_asc">gecko asc</option>
             </select>
-            <FontAwesomeIcon icon={faChevronDown} className="text-cyan hover:text-white" />
+            <FontAwesomeIcon
+              icon={faChevronDown}
+              className="text-cyan hover:text-white"
+            />
           </div>
         </div>
         <button
@@ -72,7 +80,6 @@ const Filters = () => {
           onClick={resetFunction}
         >
           <FontAwesomeIcon icon={faRotate} />
-          
         </button>
       </div>
     </div>

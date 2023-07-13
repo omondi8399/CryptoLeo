@@ -1,26 +1,27 @@
+// @ts-ignore
 import debounce from "lodash.debounce";
 import React, { useContext, useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import { CryptoContext } from "./../context/CryptoContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { CryptoContext } from "../context/CryptoContext";
 
-const SearchInput = ({ handleSearch }) => {
+const SearchInput = ({ handleSearch }: any) => {
   const [searchText, setSearchText] = useState("");
   let { searchData, setCoinSearch, setSearchData } = useContext(CryptoContext);
 
-  let handleInput = (e) => {
+  let handleInput = (e: any) => {
     e.preventDefault();
     let query = e.target.value;
     setSearchText(query);
     handleSearch(query);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     handleSearch(searchText);
   };
 
-  const selectCoin = (coin) => {
+  const selectCoin = (coin: any) => {
     setCoinSearch(coin);
     setSearchText("");
     setSearchData();
@@ -57,7 +58,7 @@ backdrop-blur-md scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-20
 "
         >
           {searchData ? (
-            searchData.map((coin) => {
+            searchData.map((coin: any) => {
               return (
                 <li
                   className="flex items-center ml-4 my-2 cursor-pointer"
@@ -97,7 +98,7 @@ backdrop-blur-md scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-20
 const Search = () => {
   let { getSearchResult } = useContext(CryptoContext);
 
-  const debounceFunc = debounce(function (val) {
+  const debounceFunc = debounce(function (val: any) {
     getSearchResult(val);
   }, 2000);
 

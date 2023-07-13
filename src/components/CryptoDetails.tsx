@@ -1,5 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import { useLayoutEffect } from "react";
@@ -7,33 +6,7 @@ import { CryptoContext } from "../context/CryptoContext";
 import Chart from "./Chart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-
-const HighLowIndicator = ({ currentPrice, high, low }) => {
-  const [green, setGreen] = useState();
-
-  useEffect(() => {
-    let total = high - low;
-    let greenZone = ((high - currentPrice) * 100) / total;
-    setGreen(Math.ceil(greenZone));
-  }, [currentPrice, high, low]);
-
-  return (
-    <>
-      <span
-        className="bg-red h-1.5 rounded-l-lg w-[50%]"
-        style={{ width: `${100 - green}%` }}
-      >
-        &nbsp;
-      </span>
-      <span
-        className="bg-green h-1.5 rounded-r-lg w-[50%]"
-        style={{ width: `${green}%` }}
-      >
-        &nbsp;
-      </span>
-    </>
-  );
-};
+import { HighLowIndicator } from "./HighLowIndicator";
 
 const CryptoDetails = () => {
   let { coinId } = useParams();
@@ -42,6 +15,8 @@ const CryptoDetails = () => {
 
   useLayoutEffect(() => {
     getCoinData(coinId);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coinId]);
 
   const close = () => {
@@ -490,7 +465,7 @@ const CryptoDetails = () => {
         )}
       </div>
     </div>,
-    document.getElementById("model")
+    document.getElementById("model")!
   );
 };
 

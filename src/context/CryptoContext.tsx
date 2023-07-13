@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { createContext, useLayoutEffect, useState } from "react";
+import React, { createContext, useLayoutEffect, useState } from "react";
 
 // create context object
-export const CryptoContext = createContext({});
+export const CryptoContext = createContext<any>({});
 
 // create the provider component
-export const CryptoProvider = ({ children }) => {
+export const CryptoProvider = ({ children }: { children: React.ReactNode }) => {
   const [cryptoData, setCryptoData] = useState();
   const [searchData, setSearchData] = useState();
   const [coinData, setCoinData] = useState();
@@ -18,18 +18,17 @@ export const CryptoProvider = ({ children }) => {
   const [totalPages, setTotalPages] = useState(250);
   const [perPage, setPerPage] = useState(10);
 
-
   // This is how you can do error handling by creating one state to store the error,
   // This is only for example purpose and not covered in the video
   // create one state for the error
   const [error, setError] = useState({ data: "", coinData: "", search: "" });
-// there can be 3 errors that we can catch from all three functions, also send the error state 
-// through value prop
+  // there can be 3 errors that we can catch from all three functions, also send the error state
+  // through value prop
 
   const getCryptoData = async () => {
     //here we will set an empty string for the data error
     setError({ ...error, data: "" });
-    setCryptoData();
+    setCryptoData(undefined);
     setTotalPages(13220);
     // try {
     //   const data = await fetch(
@@ -47,16 +46,18 @@ export const CryptoProvider = ({ children }) => {
     try {
       const data = await fetch(
         `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${coinSearch}&order=${sortBy}&per_page=${perPage}&page=${page}&sparkline=false&price_change_percentage=1h%2C24h%2C7d`
-      ).then(async (res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        let errorResponse = await res.json();
-        // here we might get the error so it is best to handle it and throw the error
-        // console.log(errorResponse);
-        setError({ ...error, data: errorResponse.error });
-        throw new Error(errorResponse.error);
-      }).then((json) => json);
+      )
+        .then(async (res) => {
+          if (res.ok) {
+            return res.json();
+          }
+          let errorResponse = await res.json();
+          // here we might get the error so it is best to handle it and throw the error
+          // console.log(errorResponse);
+          setError({ ...error, data: errorResponse.error });
+          throw new Error(errorResponse.error);
+        })
+        .then((json) => json);
 
       // console.log(data);
       setCryptoData(data);
@@ -65,8 +66,8 @@ export const CryptoProvider = ({ children }) => {
     }
   };
 
-  const getCoinData = async (coinid) => {
-    setCoinData();
+  const getCoinData = async (coinid: any) => {
+    setCoinData(undefined);
     try {
       const data = await fetch(
         `https://api.coingecko.com/api/v3/coins/${coinid}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=true&sparkline=false`
@@ -81,7 +82,7 @@ export const CryptoProvider = ({ children }) => {
     }
   };
 
-  const getSearchResult = async (query) => {
+  const getSearchResult = async (query: any) => {
     try {
       const data = await fetch(
         `https://api.coingecko.com/api/v3/search?query=${query}`
@@ -125,7 +126,7 @@ export const CryptoProvider = ({ children }) => {
         perPage,
         getCoinData,
         coinData,
-        error
+        error,
       }}
     >
       {children}

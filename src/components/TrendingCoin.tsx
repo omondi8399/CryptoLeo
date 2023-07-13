@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const TrendingCoin = ({ data }) => {
+const TrendingCoin = ({ data }: { data: any }) => {
   let navigate = useNavigate();
 
-  const getCoinDetails = (id) => {
+  const getCoinDetails = (id: string) => {
     navigate(`${id}`);
   };
 

@@ -6,7 +6,9 @@ const useScreenSize = () => {
   const updateScreenSize = () => {
     const { innerWidth } = window;
 
-    if (innerWidth < 640) {
+    if (innerWidth <= 400) {
+      setScreenSize("xs");
+    } else if (innerWidth < 640) {
       setScreenSize("sm");
     } else if (innerWidth < 768) {
       setScreenSize("md");

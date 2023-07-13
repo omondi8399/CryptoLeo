@@ -16,10 +16,6 @@ const Home = () => {
     content-center items-center relative text-white font-nunito"
           >
             <div className="w-screen h-screen bg-gray-300 fixed -z-10" />
-            {/* DoNotDelete This is for refactoring during development */}
-            {/* <p className="fixed top-4 right-4 font-semibold text-red text-lg">
-              {}
-            </p> */}
             <Logo />
             <Navigation />
             <Outlet />

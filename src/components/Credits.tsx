@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Credits = ({ className }) => {
+export const Credits = ({ className }: { className?: string }) => {
   return (
     <div className="flex flex-col md:flex-row w-full md:w-1/2 justify-between">
       <span className={`${className}`}>

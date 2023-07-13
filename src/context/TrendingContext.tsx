@@ -1,43 +1,43 @@
 import { createContext, useLayoutEffect, useState } from "react";
 
 // create context object
-export const TrendingContext = createContext({});
+export const TrendingContext = createContext<any>({});
 
 // create the provider component
 export const TrendingProvider = ({ children }) => {
-const [trendData, setTrendData] = useState();
+  const [trendData, setTrendData] = useState();
 
-const getTrendData = async () => {
+  const getTrendData = async () => {
     try {
-    const data = await fetch(
+      const data = await fetch(
         `https://api.coingecko.com/api/v3/search/trending`
-    )
+      )
         .then((res) => res.json())
         .then((json) => json);
 
-    // console.log(data);
-    setTrendData(data.coins);
+      // console.log(data);
+      setTrendData(data.coins);
     } catch (error) {
-    console.log(error);
+      console.log(error);
     }
-};
+  };
 
-const resetTrendingResult = () => {
+  const resetTrendingResult = () => {
     getTrendData();
-};
+  };
 
-useLayoutEffect(() => {
+  useLayoutEffect(() => {
     getTrendData();
-}, []);
+  }, []);
 
-return (
+  return (
     <TrendingContext.Provider
-    value={{
+      value={{
         trendData,
         resetTrendingResult,
-    }}
+      }}
     >
-    {children}
+      {children}
     </TrendingContext.Provider>
-);
+  );
 };
