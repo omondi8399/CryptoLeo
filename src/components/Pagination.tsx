@@ -6,11 +6,9 @@ import { PerPage } from "./PerPage";
 
 const Pagination = () => {
   let { page, setPage, totalPages, perPage, cryptoData } =
-    useContext(CryptoContext);
-
-  const screenSize = useScreenSize();
-
-  const totalNumber = Math.ceil(totalPages / perPage);
+    useContext<any>(CryptoContext);
+  const screenSize: string = useScreenSize();
+  const totalNumber: number = Math.ceil(totalPages / perPage);
 
   const next = () => {
     if (page === totalNumber) {

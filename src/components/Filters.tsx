@@ -10,7 +10,8 @@ import {
 import { CryptoContext } from "../context/CryptoContext";
 
 const Filters = () => {
-  let { setCurrency, setSortBy, resetFunction } = useContext(CryptoContext);
+  let { setCurrency, setSortBy, resetFunction } =
+    useContext<any>(CryptoContext);
   const currencyRef = useRef<HTMLInputElement | null>(null);
 
   const handleCurrencySubmit = (e: React.FormEvent) => {
@@ -25,6 +26,54 @@ const Filters = () => {
     let val = e.target.value;
     setSortBy(val);
   };
+
+  interface Details {
+    title: string;
+    val: string;
+  }
+
+  const optsDetails: Details[] = [
+    {
+      title: "Market cap desc",
+      val: "market_cap_desc",
+    },
+    {
+      title: "market cap asc",
+      val: "market_cap_asc",
+    },
+    {
+      title: "volume desc",
+      val: "volume_desc",
+    },
+    {
+      title: "volume asc",
+      val: "volume_asc",
+    },
+    {
+      title: "id desc",
+      val: "id_desc",
+    },
+    {
+      title: "id asc",
+      val: "id_asc",
+    },
+    {
+      title: "gecko desc",
+      val: "gecko_desc",
+    },
+    {
+      title: "gecko asc",
+      val: "gecko_asc",
+    },
+  ];
+
+  const optsSelect = optsDetails.map((select: Details, index: number) => {
+    return (
+      <option key={index} value={select.val}>
+        {select.title}
+      </option>
+    );
+  });
 
   return (
     <div className=" w-full border-2 border-gray-100 rounded-lg py-2 px-2 flex items-start md:flex-row md:items-center md:justify-between flex-col gap-4 flex-wrap">
@@ -60,14 +109,7 @@ const Filters = () => {
               onClick={handleSort}
               className="rounded bg-gray-200 text-base leading-4 capitalize focus:outline-0 py-1 w-40 md:max-w-72 pl-3 appearance-none"
             >
-              <option value="market_cap_desc">market cap desc</option>
-              <option value="market_cap_asc">market cap asc</option>
-              <option value="volume_desc">volume desc</option>
-              <option value="volume_asc">volume asc</option>
-              <option value="id_desc">id desc</option>
-              <option value="id_asc">id asc</option>
-              <option value="gecko_desc">gecko desc</option>
-              <option value="gecko_asc">gecko asc</option>
+              {optsSelect}
             </select>
             <FontAwesomeIcon
               icon={faChevronDown}
