@@ -17,6 +17,14 @@ module.exports = {
     fontSize: {
       sm: "14px", md: "18px", lg: "24px", xl: "32px", base: "16px"
     },
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      //not specified in useScreenSize hook
+      '2xl': '1536px',
+    },
   },
   plugins: [require("tailwind-scrollbar")],
 }
