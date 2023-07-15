@@ -1,28 +1,57 @@
 import React from "react";
 
 export const Credits = ({ className }: { className?: string }) => {
+  {
+    /*TODO: declare types*/
+  }
+  interface Details {
+    links: {
+      gecko: string;
+      dev: string;
+    };
+    title: {
+      prov: string;
+      gecko: string;
+      made: string;
+      name: string;
+    };
+  }
+
+  const details: Details = {
+    links: {
+      gecko: "http://www.coingecko.com",
+      dev: "https://devrojas.vercel.app",
+    },
+    title: {
+      prov: "Data provided by",
+      gecko: "CoinGecko",
+      made: "Site made by",
+      name: "DevRojas",
+    },
+  };
+
   return (
     <div className="flex flex-col md:flex-row w-full md:w-1/2 justify-between">
       <span className={`${className}`}>
-        Data provided by{" "}
+        {details.title.prov}{" "}
         <a
           className="text-cyan"
-          href="http://www.coingecko.com"
+          href={details.links.gecko}
           rel="noreferrer"
           target="_blank"
         >
-          CoinGecko
+          {details.title.gecko}
         </a>
       </span>
       <span>
-        Site made by{" "}
+        {details.title.made}{" "}
         <a
           className="text-cyan"
-          href="https://devrojas.vercel.app"
+          href={details.links.dev}
           rel="noreferrer"
           target="_blank"
         >
-          DevRojas
+          {details.title.name}
         </a>
       </span>
     </div>

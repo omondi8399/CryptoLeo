@@ -4,7 +4,7 @@ import { createContext, useLayoutEffect, useState } from "react";
 export const TrendingContext = createContext<any>({});
 
 // create the provider component
-export const TrendingProvider = ({ children }) => {
+export const TrendingProvider = ({ children }: any)  => {
   const [trendData, setTrendData] = useState();
 
   const getTrendData = async () => {
