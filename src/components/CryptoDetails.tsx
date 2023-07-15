@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import ReactDOM from "react-dom";
-import { useNavigate, useParams } from "react-router-dom";
+import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
 import { useLayoutEffect } from "react";
 import { CryptoContext } from "../context/CryptoContext";
 import Chart from "./Chart";
@@ -9,9 +9,9 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { HighLowIndicator } from "./HighLowIndicator";
 
 const CryptoDetails = () => {
-  let { coinId } = useParams();
-  let navigate = useNavigate();
-  let { getCoinData, coinData: data, currency } = useContext(CryptoContext);
+  const { coinId } = useParams<string>();
+  const navigate: NavigateFunction = useNavigate();
+  const { getCoinData, coinData: data, currency } = useContext(CryptoContext);
 
   useLayoutEffect(() => {
     getCoinData(coinId);
@@ -77,7 +77,7 @@ const CryptoDetails = () => {
                     >
                       <span>
                         {Number(
-                          data.market_data.price_change_percentage_24h
+                          data.market_data.price_change_percentage_24h,
                         ).toFixed(2)}
                         %
                       </span>
@@ -133,7 +133,7 @@ const CryptoDetails = () => {
                       currency: currency,
                       notation: "compact",
                     }).format(
-                      data.market_data.fully_diluted_valuation[currency]
+                      data.market_data.fully_diluted_valuation[currency],
                     )}
                   </h2>
                 </div>
@@ -284,7 +284,7 @@ const CryptoDetails = () => {
                     >
                       <span>
                         {Number(data.sentiment_votes_down_percentage).toFixed(
-                          2
+                          2,
                         )}
                         %
                       </span>
@@ -465,7 +465,7 @@ const CryptoDetails = () => {
         )}
       </div>
     </div>,
-    document.getElementById("model")!
+    document.getElementById("model")!,
   );
 };
 

@@ -61,14 +61,22 @@ const Saved = () => {
           <table className="w-full table-auto">
             <thead className="capitalize text-base text-gray-100 font-medium border-b border-gray-100 ">
               <tr>
-                <th className="py-1 ">asset</th>
-                <th className="py-1">name</th>
-                <th className="py-1">price</th>
-                <th className="py-1">total volume</th>
-                <th className="py-1">market cap change</th>
-                <th className="py-1">1H</th>
-                <th className="py-1">24H</th>
-                <th className="py-1">7D</th>
+                {[
+                  "asset",
+                  "name",
+                  "price",
+                  "total volume",
+                  "market cap change",
+                  "1H",
+                  "24H",
+                  "7D",
+                ].map((table: string, index: number) => {
+                  return (
+                    <th key={index} className="py-1">
+                      {table}
+                    </th>
+                  );
+                })}{" "}
               </tr>
             </thead>
             <tbody>
@@ -115,7 +123,7 @@ const Saved = () => {
                         }
                       >
                         {Number(data.market_cap_change_percentage_24h).toFixed(
-                          2
+                          2,
                         )}
                         %
                       </td>
@@ -127,7 +135,7 @@ const Saved = () => {
                         }
                       >
                         {Number(
-                          data.price_change_percentage_1h_in_currency
+                          data.price_change_percentage_1h_in_currency,
                         ).toFixed(2)}
                         %
                       </td>
@@ -139,7 +147,7 @@ const Saved = () => {
                         }
                       >
                         {Number(
-                          data.price_change_percentage_24h_in_currency
+                          data.price_change_percentage_24h_in_currency,
                         ).toFixed(2)}
                         %
                       </td>
@@ -151,7 +159,7 @@ const Saved = () => {
                         }
                       >
                         {Number(
-                          data.price_change_percentage_7d_in_currency
+                          data.price_change_percentage_7d_in_currency,
                         ).toFixed(2)}
                         %
                       </td>

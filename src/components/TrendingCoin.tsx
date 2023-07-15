@@ -1,8 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 
 const TrendingCoin = ({ data }: { data: any }) => {
-  let navigate = useNavigate();
+  const navigate: NavigateFunction = useNavigate();
 
   const getCoinDetails = (id: string) => {
     navigate(`${id}`);
