@@ -29,7 +29,7 @@
 }
 
 .show {
-  @apply border-2 border-red;
+  @apply outline-2 outline-red;
 }
 
 @keyframes App-logo-spin {

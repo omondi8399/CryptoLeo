@@ -17,7 +17,7 @@ export const PerPage = () => {
 
   return (
     <form
-      className="relative flex items-center font-nunito
+      className="relative flex items-center font-nunito mx-auto
           mr-12
           "
       onSubmit={handleSubmit}

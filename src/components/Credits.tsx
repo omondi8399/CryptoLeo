@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import React from "react";
 
 export const Credits = ({ className }: { className?: string }) => {
@@ -31,7 +32,7 @@ export const Credits = ({ className }: { className?: string }) => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row w-full md:w-1/2 justify-between">
+    <div className="flex flex-col md:flex-row w-full md:w-1/2 justify-between mt-5 sm:mt-0">
       <span className={`${className}`}>
         {details.title.prov}{" "}
         <a
