@@ -11,8 +11,8 @@ const Trending = () => {
     <section className="w-11/12 sm:w-[80%] h-full flex flex-col mt-16 mb-24 relative">
       <div className="w-full min-h-[60vh] py-8 flex flex-wrap justify-evenly  border border-gray-100 rounded">
         {trendData &&
-          trendData.map((coin: any) => (
-            <TrendingCoin key={data.coin_id} data={coin.item} />
+          trendData.map((coin: any, i: number) => (
+            <TrendingCoin key={i} data={coin.item} />
           ))}
         <button
           className="w-[2rem] ml-4 hover:scale-110 transition-all transition-ease

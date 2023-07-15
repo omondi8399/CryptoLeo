@@ -13,9 +13,9 @@ const Home = () => {
         <StorageProvider>
           <main
             className="w-full h-full flex flex-col first-letter:
-    content-center items-center relative text-white font-nunito"
+    content-center items-center relative text-white font-nunito overflow-x-hidden"
           >
-            <div className="w-screen h-screen bg-gray-300 fixed -z-10" />
+            <div className="w-screen bg-gray-300 -z-10 absolute top-0 bottom-0 right-0 left-0 overflow-x-hidden"></div>
             <Logo />
             <Navigation />
             <Outlet />

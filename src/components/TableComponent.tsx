@@ -88,7 +88,7 @@ const TableComponent = () => {
                         }
                       >
                         {Number(
-                          data.price_change_percentage_1h_in_currency,
+                          data.price_change_percentage_1h_in_currency
                         ).toFixed(2)}
                       </td>
                       <td
@@ -99,7 +99,7 @@ const TableComponent = () => {
                         }
                       >
                         {Number(
-                          data.price_change_percentage_24h_in_currency,
+                          data.price_change_percentage_24h_in_currency
                         ).toFixed(2)}
                       </td>
                       <td
@@ -110,7 +110,7 @@ const TableComponent = () => {
                         }
                       >
                         {Number(
-                          data.price_change_percentage_7d_in_currency,
+                          data.price_change_percentage_7d_in_currency
                         ).toFixed(2)}
                       </td>
                     </tr>
@@ -139,7 +139,7 @@ const TableComponent = () => {
           </h1>
         ) : null}
       </div>
-      <div className="flex items-center justify-between md:flex-row mt-20 md:mt-10 capitalize h-[2rem] flex-col-reverse gap-x-5">
+      <div className="flex mt-5 items-center gap-x-5 flex-col-reverse sm:flex-row justify-between">
         <Credits /> <Pagination />
       </div>
     </>
